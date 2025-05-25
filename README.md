@@ -1,4 +1,29 @@
 # Crypto to Unlock 
+
+flowchart TD
+    Start[/Start: /start command/]
+    Start --> A[Bot envia: "Hello! What would you like to do today?"]
+    A --> B[Inline Keyboard: Buy | Sell]
+    
+    B --> Buy[User clica em "Buy"]
+    Buy --> C[Bot responde: "You selected: Buy"]
+    C --> D[Bot pergunta: "Please provide the details of the order you'd like to place."]
+    D --> E[Usuário envia os detalhes]
+    E --> F[Bot confirma recebimento ou processa futuramente]
+
+    B --> Sell[User clica em "Sell"]
+    Sell --> G[Bot responde: "You selected: Sell"]
+    G --> H[Bot pergunta: "Please enter the client's @username"]
+    H --> I[Usuário envia @username]
+    I --> J[Bot confirma recebimento ou continua fluxo de venda]
+
+    Others[Usuário envia conteúdo não suportado (imagem, vídeo, etc.)]
+    Others --> K[Bot responde: "❌ Sorry, this type of media is not supported at the moment."]
+
+    GenericText[Usuário envia qualquer texto que não seja /start]
+    GenericText --> L[Bot responde: "Type /start to begin."]
+
+
 Crypto to Unlock is a Telegram bot designed for digital photo sales, leveraging Web3 technologies like Solana and Anchor for secure payments. It facilitates a decentralized process for buyers and sellers, ensuring content protection and payment security. Key features include:
 
 Buyer-Seller Interaction: Buyers start by chatting with the bot to specify the content they wish to purchase (e.g., personalized photos).
