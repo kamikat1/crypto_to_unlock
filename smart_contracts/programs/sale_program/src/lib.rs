@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkgvNjqT9Efdz"); // substitua com o ID real do programa depois do deploy
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkgvNjqT9Efdz"); //replace with a real ID after the deploy
 
 #[program]
 pub mod sale_program {
@@ -25,11 +25,11 @@ pub mod sale_program {
         let fee = amount / 20; // 5%
         let seller_amount = amount - fee;
 
-        // Transfere a taxa para a plataforma
+        //this would transfer the fee to the splatform
         **ctx.accounts.buyer.try_borrow_mut_lamports()? -= fee;
         **ctx.accounts.platform.try_borrow_mut_lamports()? += fee;
 
-        // Transfere o restante para o vendedor
+        //this would transfer the fee to the seller
         **ctx.accounts.buyer.try_borrow_mut_lamports()? -= seller_amount;
         **ctx.accounts.seller.try_borrow_mut_lamports()? += seller_amount;
 
